@@ -13,10 +13,11 @@ export const Body = () => {
           <Card.Text>Lorem ipsum dolor sit amet consectetur!.</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroupItem>Option 1</ListGroupItem>
-          <ListGroupItem>Option 2</ListGroupItem>
-          <ListGroupItem>Option 3</ListGroupItem>
+          <ListGroupItem className="btn btn-success">Option 1</ListGroupItem>
+          <ListGroupItem className="btn btn-success">Option 2</ListGroupItem>
+          <ListGroupItem className="btn btn-success">Option 3</ListGroupItem>
         </ListGroup>
+        <button className="btn btn-primary"> Submit </button>
       </Card>
     </div>
   );
