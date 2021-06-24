@@ -1,24 +1,50 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
+// import React from "react";
+import React, { useState } from "react";
 
-export const Body = () => {
+export default function App() {
+  const questions = [
+    {
+      questionText: "Do you want to vote this?",
+      answerOptions: [
+        { answerText: "", isCorrect: false },
+        { answerText: "", isCorrect: false },
+        { answerText: "", isCorrect: true },
+        { answerText: "", isCorrect: false },
+      ],
+    },
+  ];
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const handleAnswerOptionClick = (isCorrect) => {
+    if (isCorrect) {
+    }
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+    }
+  };
   return (
-    <div className="container">
-      <Card style={{ width: "30rem" }}>
-        {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
-        <Card.Body>
-          <Card.Title>Question</Card.Title>
-          <Card.Text>Lorem ipsum dolor sit amet consectetur!.</Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem className="btn btn-success">Option 1</ListGroupItem>
-          <ListGroupItem className="btn btn-success">Option 2</ListGroupItem>
-          <ListGroupItem className="btn btn-success">Option 3</ListGroupItem>
-        </ListGroup>
-        <button className="btn btn-primary"> Submit </button>
-      </Card>
+    <div className="app">
+      <>
+        <div className="question-section">
+          <div className="question-count">
+            <span>Question {currentQuestion + 1}</span>
+          </div>
+          <div className="question-text">
+            {questions[currentQuestion].questionText}
+          </div>
+        </div>
+        <div className="answer-section">
+          {questions[currentQuestion].answerOptions.map((answerOption) => (
+            <button
+              onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
+            ></button>
+          ))}
+        </div>
+      </>
     </div>
   );
-};
+}
